@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\StutestController;
 use App\Http\Controllers\uploadController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
@@ -40,3 +41,8 @@ Route::middleware('jwt.refresh')->group(function () {
 });
 Route::post('upload',[uploadController::class,'upload']);//OSS上传(不可用)
 Route::post('load',[uploadController::class,'load']);//分片上传 zlc
+
+Route::get('single',[StutestController::class,'single']);//查看单个球类信息
+Route::get('all',[StutestController::class,'all']);//查看所有球类信息
+Route::post('lend',[StutestController::class,'lend']);//借出球类
+Route::post('returnball',[StutestController::class,'returnball']);//归还球类
